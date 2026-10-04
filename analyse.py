@@ -17,7 +17,6 @@ def niveaux_fibo(plus_haut, plus_bas, haussier):
     return niveaux
 
 
-
 def analyser(intervalle):  
     df = get_bougies(intervalle)
     last = df["close"].iloc[-1]
@@ -26,6 +25,20 @@ def analyser(intervalle):
     tend = detecter_haussier(df)
     fibo = niveaux_fibo(haut, bas, tend)
     return {"prix": last, "haussier": tend, "niveaux": fibo}
+
+
+def situer_prix(prix, niveaux):
+    dessus = None
+    dessous = None
+    for ratio, prix_niveau in niveaux.items():
+        if prix_niveau > prix:
+            if dessus is None or prix_niveau < dessus[1]:
+                dessus = (ratio, prix_niveau)
+        else:
+            if dessous is None or prix_niveau > dessous[1]:
+                dessous = (ratio, prix_niveau)
+    return dessus, dessous 
+
 
 
 if __name__ == "__main__":
