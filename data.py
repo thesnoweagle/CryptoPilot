@@ -14,4 +14,12 @@ def get_bougies(intervalle):
     return df
 
 if __name__ == "__main__":
-    print(get_bougies("15m").tail())
+    
+    df = get_bougies("15m")
+    last = df["close"].iloc[-1]
+    highest = df["high"].max()
+    lowest = df["low"].min()
+    print(f"Dernier prix : {last:.2f} $")
+    print(f"Plus haut (200 bougies) : {highest:.2f} $")
+    print(f"Plus bas (200 bougies) : {lowest:.2f} $")
+    
