@@ -22,4 +22,3 @@ if __name__ == "__main__":
     print(f"Dernier prix : {last:.2f} $")
     print(f"Plus haut (200 bougies) : {highest:.2f} $")
     print(f"Plus bas (200 bougies) : {lowest:.2f} $")
-    
