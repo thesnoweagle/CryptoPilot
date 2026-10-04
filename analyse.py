@@ -25,8 +25,3 @@ if __name__ == "__main__":
         print("tendance baissiere")
     for ratio, prix in niveaux.items():
         print(f"{ratio:.1%} : {prix:.2f} $")
-    
-    
-
-    
-
