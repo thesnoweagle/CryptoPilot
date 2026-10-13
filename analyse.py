@@ -93,5 +93,9 @@ def afficher(intervalle, analyse):
 
 
 if __name__ == "__main__":
+    resultat = {}
     for intervalle in INTERVALLES:
-        afficher(intervalle, analyser(intervalle))
+        analyse = analyser(intervalle)
+        afficher(intervalle, analyse)
+        resultat[intervalle] = "haussiere" if analyse["haussier"] else "baissiere"
+    print(resultat)
