@@ -44,8 +44,9 @@ def calculer_rsi(df, periode):
     return 100 - 100 / (1 + rs)
 
 
-def analyser(intervalle):
-    df = get_bougies(intervalle)
+def analyser(intervalle, df=None):
+    if df is None:
+        df = get_bougies(intervalle)
     prix = df["close"].iloc[-1]
     haussier = detecter_haussier(df)
     niveaux = niveaux_fibo(df["high"].max(), df["low"].min(), haussier)
